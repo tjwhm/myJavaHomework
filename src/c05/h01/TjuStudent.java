@@ -4,7 +4,7 @@ package c05.h01;
   Created by tjwhm on 2017/9/26 13:47
   Happy coding !
  */
-public class TjuStudent extends Human implements Youth, Student {
+public class TjuStudent extends Human implements Student {
 
     public TjuStudent(String name) {
         super(name);
