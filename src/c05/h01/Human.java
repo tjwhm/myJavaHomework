@@ -5,34 +5,18 @@ package c05.h01;
   Happy coding !
  */
 public class Human {
-    private String name;
-    private int score;
-    private int age;
 
-    public Human(String name) {
-        this.name = name;
+    public String name;
+
+    public Human() {
+
     }
-    public Human(){
 
+    public Human(String newName) {
+        this.name = newName;
     }
 
     public String getName() {
         return name;
-    }
-
-    public int getScore() {
-        return score;
-    }
-
-    public void setScore(int score) {
-        this.score = score;
-    }
-
-    public int getAge() {
-        return age;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
     }
 }

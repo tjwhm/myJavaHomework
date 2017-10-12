@@ -1,10 +1,14 @@
 package c05.h01;
 
+
 /*
-  Created by tjwhm on 2017/9/26 13:47
+  Created by tjwhm on 2017/9/26 13:46
   Happy coding !
  */
-public class TjuStudent extends Human implements Student {
+public class TjuStudent extends Human implements Youth, Student {
+    public int socre;
+    public int age;
+
 
     public TjuStudent(String name) {
         super(name);
@@ -12,26 +16,27 @@ public class TjuStudent extends Human implements Student {
 
     @Override
     public String getName() {
-        return super.getName();
+        return name;
     }
 
     @Override
     public int getScore() {
-        return super.getScore();
+        return socre;
     }
 
     @Override
-    public void setScore(int score) {
-        super.setScore(score);
+    public void setScore(int a) {
+        this.socre = a;
     }
 
     @Override
     public int getAge() {
-        return super.getAge();
+        return age;
     }
 
     @Override
-    public void setAge(int age) {
-        super.setAge(age);
+    public void setAge(int b) {
+        this.age = b;
     }
+
 }
