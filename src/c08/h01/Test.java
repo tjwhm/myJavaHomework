@@ -15,7 +15,7 @@ public class Test {
 		if(util.getDistinctCharCount("11225500122000555111550022")==4) {
 			System.out.println("作对了 1");
 		}
-		if(util.getFrequentChar("001122335588442255663321")=='2') {
+		if(util.getFrequentChar("000001100220033005500088442255663321")=='0') {
 			System.out.println("作对了2");
 		}
 		

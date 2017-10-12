@@ -44,6 +44,8 @@ public class MyUtil {
     public char getFrequentChar(String s) {
         List<Character> distinctChars = new ArrayList<>();
         List<Integer> weights = new ArrayList<>();
+        distinctChars.add(s.charAt(0));
+        weights.add(0);
         for (int i = 0; i < s.length(); i++) {
             for (int j = 0; j < i; j++) {
                 if (s.charAt(j) == s.charAt(i)) {
@@ -64,7 +66,7 @@ public class MyUtil {
         }
         int index = 0;
         for (int i = 1; i < weights.size(); i++) {
-            if (weights.get(i) > weights.get(i - 1)) {
+            if (weights.get(i) > weights.get(index)) {
                 index = i;
             }
         }
