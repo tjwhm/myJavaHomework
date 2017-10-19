@@ -1,9 +1,5 @@
 package e02;
 
-import com.sun.org.apache.bcel.internal.generic.CPInstruction;
-import org.omg.CORBA.OBJ_ADAPTER;
-import sun.plugin2.gluegen.runtime.CPU;
-
 import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.InputStream;
