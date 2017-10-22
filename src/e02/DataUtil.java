@@ -40,7 +40,7 @@ public class DataUtil {
             }
             line = reader.readLine();
         }
-        res.sort(new Comparator<CombineProducts>() {
+        Collections.sort(res,new Comparator<CombineProducts>() {
             @Override
             public int compare(CombineProducts o1, CombineProducts o2) {
                 return o2.frequency - o1.frequency;
