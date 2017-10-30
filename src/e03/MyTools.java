@@ -3,24 +3,39 @@ package e03;
 import java.io.*;
 import java.util.*;
 
-public class MyUtil {
+public class MyTools {
 
-    public MyUtil() {
-        // TODO Auto-generated constructor stub
+    private String studentListFile;
+    private String picDir;
+
+    public MyTools(String studentListFile, String picDir) {
+        this.studentListFile = studentListFile;
+        this.picDir = picDir;
     }
 
-    /**
-     * 返回所有没有上交照片的学生学号
-     *
-     * @param studentListFilename 学生名单文件
-     * @param dir
-     * @return
-     */
-    public Set<String> getNoPicStudentIDS(String studentListFilename, String dir) throws IOException {
-        InputStream is = new FileInputStream(studentListFilename);
-        String line;
-        BufferedReader reader = new BufferedReader(new InputStreamReader(is, "gbk"));
-        line = reader.readLine();
+    public Set<String> getNoPicStudentList() {
+        InputStream is = null;
+        try {
+            is = new FileInputStream(studentListFile);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        String line = null;
+        BufferedReader reader = null;
+        try {
+            if (is != null) {
+                reader = new BufferedReader(new InputStreamReader(is, "gbk"));
+            }
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+        try {
+            if (reader != null) {
+                line = reader.readLine();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         List<String> ids = new ArrayList<>();
         while (line != null) {
             for (int i = 0; i < line.length(); i++) {
@@ -29,9 +44,13 @@ public class MyUtil {
                     break;
                 }
             }
-            line = reader.readLine();
+            try {
+                line = reader.readLine();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
-        File[] files = new File(dir).listFiles();
+        File[] files = new File(picDir).listFiles();
         List<String> picIDs = new ArrayList<>();
         if (files != null) {
             for (File file : files) {
@@ -54,14 +73,8 @@ public class MyUtil {
         return res;
     }
 
-    /**
-     * 返回所有文件过大的学生学号
-     *
-     * @param dir
-     * @return
-     */
-    public Set<String> getOverSizeStudentIDS(String studentListFilename, String dir) {
-        File[] files = new File(dir).listFiles();
+    public Set<String> getOverSizeStudentList() {
+        File[] files = new File(picDir).listFiles();
         Set<String> strings = new TreeSet<>();
         if (files != null) {
             for (File file : files) {
